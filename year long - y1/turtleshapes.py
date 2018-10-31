@@ -30,5 +30,5 @@ for circle_1 in range(1000):
 	turtle.forward(50)
 	turtle.penup()
 	turtle.goto(0,0)
+	turtle.right(2)
 	turtle.pendown()
-	turtle.right(circle_1)
