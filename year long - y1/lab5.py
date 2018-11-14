@@ -107,11 +107,13 @@ if letter_grade is "F":
 else:
     print ("Student is passing.")
 '''
+'''
 class Person:
-	def __init__(self, name, favorite_food="Chocolate", age=15):
+	def __init__(self, name, favorite_food="Chocolate", age="15"):
 		self.name = name
 		self.favorite_food = favorite_food
 		self.age = age
+		self.color = "Red"
 
 	def define_color(self, color="Red"):
 		self.color = color
@@ -121,9 +123,48 @@ class Person:
 		print("My favorite food is " + self.favorite_food + " and my favorite color is " + self.color)
 
 
-a = Person("Britney", "Pizza", 16)
+a = Person("Britney", "Pizza", "16")
 a.define_color("Black")
 a.print_info()
 
-b = Person("Jake", 15)
+b = Person("Jake", age = 15)
 b.print_info()
+'''
+'''
+class Bear():
+	def __init__(self, name):
+		self.name = "Danny"
+		print("A new bear created. Its name is:" + self.name)
+	
+	def say_hi(self):
+		print("Hi! I’m a bear. My name is " + self.name)
+my_bear = Bear("Danny")
+print(my_bear.say_hi())
+'''
+'''
+class Cake():
+	def __init__(self, flavor):
+		self.cake_flavor = flavor
+
+	def eat(self):
+		print("Yummy!!! Eating a", self.cake_flavor, "cake :)")
+
+cake = Cake ("chocolate")
+print(cake.eat)
+# what I want to be printed: Yummy!!! Eating a chocolate cake :)
+'''
+class Cat():
+	def __init__(self, name):
+		self.name = name
+		self.age = 0 
+	def birthday(self, age):
+		self.age += 1
+		if self.age >= 100:
+			print("Dong dong, the cat is dead!")
+		else:
+			print(self.name, "hasing its", self.age, "birthday!")
+
+my_cat = Cat("Salem")
+my_cat.birthday(8)
+# what I want: my cat to celebrate its 8th birthday (and all the 
+# birthdays that come before that)
