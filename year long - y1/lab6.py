@@ -20,10 +20,25 @@ Square1 = Square(9)
 Square1.random_color()
 '''
 class Hexagon(Turtle):
-	def __init__ (self, size):
+	def __init__ (self, size, color):
+		Turtle.__init__(self)
 		self.size = size
 		turtle.begin_poly()
-		turtle.pendown(50,-100)
+		turtle.penup()
+		turtle.goto(50,-100)
+		turtle.goto(100,-100)
+		turtle.goto(150,0)
+		turtle.goto(100,100)
+		turtle.goto(50,100)
+		turtle.goto(0,0)
+		turtle.end_poly()
+		h=turtle.get_poly()
+		turtle.register_shape("Hexagon", h)
+		self.shape("Hexagon")
+		self.color(color)
 
+
+
+hex = Hexagon(20,"yellow")
 
 turtle.mainloop()
