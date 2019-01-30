@@ -2,6 +2,11 @@ import turtle
 import time
 import random
 from ball import Ball
+from pygame import mixer
+turtle.register_shape("spiderman.gif")
+mixer.init()
+mixer.music.load("Avengers Suite (Theme).mp3")
+mixer.music.play()
 
 turtle.tracer (0,0)
 turtle.hideturtle()
@@ -12,6 +17,7 @@ SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
 SCREEN_HEIGHT = turtle.getcanvas().winfo_height()/2
 
 MY_BALL = Ball (0, 0, 7, 5, 10, "pink")
+MY_BALL.shape("spiderman.gif")
 NUMBER_OF_BALLS = 5
 MINIMUM_BALL_RADIUS = 10
 MAXIMUM_BALL_RADIUS = 100
@@ -19,6 +25,9 @@ MINIMUM_BALL_DX = -5
 MAXIMUM_BALL_DX = 5
 MINIMUM_BALL_DY = -5
 MAXIMUM_BALL_DY = 5
+
+screen = turtle.Screen()
+screen.register_shape("thanos.gif")
 
 BALLS=[]
 for i in range(NUMBER_OF_BALLS):
@@ -29,6 +38,8 @@ for i in range(NUMBER_OF_BALLS):
 	y = random.randint(-SCREEN_HEIGHT + MAXIMUM_BALL_RADIUS, SCREEN_HEIGHT - MAXIMUM_BALL_RADIUS)
 	color =(random.random(), random.random(), random.random())
 	NEW_BALL = Ball(10,10,10,10,10,"red")
+	
+	NEW_BALL.shape("thanos.gif")
 	BALLS.append(NEW_BALL)
 
 def move_all_balls(BALLS):
@@ -72,6 +83,7 @@ def check_all_balls_collision():
 					ball_b.dy=dy
 					ball_b.shape("circle")
 					ball_b.color(color)	
+					ball_b.shape("thanos.gif")
 				else:
 					ball_b.radius += 1
 					ball_b.shapesize(radius/10)
@@ -83,6 +95,8 @@ def check_all_balls_collision():
 					ball_a.dy=dy
 					ball_a.shape("circle")
 					ball_a.color(color)	
+					ball_a.shape("thanos.gif")
+
 
 def check_myball_collision():
 	for ball in BALLS:
@@ -102,6 +116,7 @@ def check_myball_collision():
 				ball.dy=dy
 				ball.shape("circle")
 				ball.color(color)	
+       			
 	return True
 
 def movearound (event):
@@ -120,3 +135,10 @@ while running:
 	running = check_myball_collision()
 	turtle.update()
 	time.sleep(sleep)
+	if running == False:
+		print ('oops Thanos snapped!')
+		turtle.bgpic('gameover2.gif')
+		screen.update()
+		time.sleep(2)
+		quit ()
+

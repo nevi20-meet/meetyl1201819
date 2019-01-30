@@ -11,7 +11,7 @@ class Ball (Turtle):
 		self.shape("circle")
 		self.shapesize(radius/10)
 		self.color(color)
-
+		
 	def move (self, screen_width, screen_height):
 		current_x = self.xcor()
 		new_x = current_x + self.dx
