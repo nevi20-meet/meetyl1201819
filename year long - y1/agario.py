@@ -7,6 +7,7 @@ turtle.register_shape("spiderman.gif")
 mixer.init()
 mixer.music.load("Avengers Suite (Theme).mp3")
 mixer.music.play()
+turtle.bgpic("earth.gif")
 
 turtle.tracer (0,0)
 turtle.hideturtle()
